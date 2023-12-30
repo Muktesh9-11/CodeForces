@@ -41,13 +41,14 @@ int main(){
         }
     }
     cout<<ans<<endl;
-        
-
 
     }
 }
 
-//Using Brute Force
+//Using Brute Force (Method 2)
+
+
+
 /*
 #include<bits/stdc++.h>
 #include<iostream>
@@ -94,10 +95,6 @@ int main(){
     }
  
     cout<<ans<<endl;
- 
-   
-        
- 
  
     }
 }*/
