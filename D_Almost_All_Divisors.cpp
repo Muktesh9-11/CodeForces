@@ -17,4 +17,3 @@ int main(){
         solve();
     }
 }
-Linking VS to git
