@@ -9,7 +9,7 @@ int main(){
     while(t-->0){
         int n;
         cin>>n;
-        pair<int,int> arr(n);
+        pair<int,int> arr[n];
         for(int i=0;i<n;i++){
             cin>>arr[i].first;
         }
@@ -17,7 +17,7 @@ int main(){
             cin>>arr[i].second;
         }
 
-        sort(a,a+n);
+        sort(arr,arr+n);
         for(auto it : arr){
             cout<<it.first<<" ";
         }
