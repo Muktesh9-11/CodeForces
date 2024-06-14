@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #include<iostream>
+#include<algorithm>
 using namespace std;
 #define ll long long
 
@@ -11,31 +12,21 @@ int main(){
         
         ll n;
         cin>>n;
-        vector<ll>a(n);
+        vector<int>a(n);
         for(ll i=0;i<n;i++){
             cin>>a[i];
         }
         ll count=0;
-        vector<ll>psum(n+1,0);
-        //psum[0]=0;
-        for(ll i=1;i<=n;i++){
-            psum[i]=psum[i-1]+a[i-1];
-        }
+        ll psum=0;
+        int pmax=-1;
         for(ll i=0;i<n;i++){
-            if(a[i]==psum[i]){
-                count++;
+            pmax=max(pmax,a[i]);
+            psum+=a[i];
+            if(psum==2*pmax){
+                count++; 
             }
-            
-                for(int j=i;j<n;j++){
-                    if(psum[i+1]==2*a[i]){
-                        count++;
-                        break;
-                    }
-                }
-            
         }
-        
-        cout<<count<<endl;
 
+        cout<<count<<endl;
     }
 }
