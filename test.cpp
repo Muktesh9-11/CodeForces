@@ -8,13 +8,12 @@ using namespace std;
 
 int main(){
     
-    for(int i=1;i<41;i++){
-        cout<<"start ";
-        for(int j=1;j<41;j++){
-            cout<<i*j<<" ";
-            break;
-        }
-        cout<<endl;
-    }
+   vector<int> arr;
+    arr.pb(1);
+    arr.pb(2);
+    //arr.pb(3);
+    //arr.pb(4);
+    //arr.pb(5);
+   cout<<lower_bound(arr.begin(), arr.end(), 3) - arr.begin();
 
 }
