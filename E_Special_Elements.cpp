@@ -14,25 +14,32 @@ int main(){
         
         int n;
         cin>>n;
-        vector<int> arr(n);
-        vector<int> temp(n);
+        vector<int> arr(8001);
+        vector<int> temp(8001);
         int count=0;
 
         for(int i=0;i<n;i++){
             cin>>arr[i];
-            temp[i]=arr[i];
+            temp[i+1]=0;
         }
 
-        for(int left=0;left<n;left++){
+        for(int left=0;left<n;++left){
             int sum=arr[left];
-            for(int right=left+1;right<n;right++){
+            for(int right=left+1;right<n;++right){
                 sum+=arr[right];
-                auto t=find(temp.begin(), temp.end(), sum);
-                if (t != temp.end()) {
+                //auto t=find(temp.begin(), temp.end(), sum);
+                /*if (t != temp.end()) {
                     count++;
                     temp[t-temp.begin()]=INT_MAX;
-            }
+                }*/
+
+                if(sum>n) break;
+                temp[sum]=1;
         }
+        }
+
+        for(int i=0;i<n;++i){
+            if(temp[arr[i]]) count++;
         }
         cout<<count<<endl;
 
