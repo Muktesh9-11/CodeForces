@@ -12,14 +12,15 @@ int main(){
     while(t-->0){
         //code here
         
-        ll n,k;
-        cin>>n>>k;
-        int sum=0;
-        for(int i=1;i<=n;i++){
-            sum+=pow(i,i);
-            cout<<sum<<" ";
+        ll n;
+        cin>>n;
+        vector<ll> arr(n);
+        ll sum=0;
+        for(ll i=0;i<n;i++){
+            cin>>arr[i];
+            if(i<n-2) sum+=arr[i];
         }
-
-
+        cout<<arr[n-1]-arr[n-2]+sum<<endl;
+        
     }
 }

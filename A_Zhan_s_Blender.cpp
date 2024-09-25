@@ -12,14 +12,14 @@ int main(){
     while(t-->0){
         //code here
         
-        ll n,k;
-        cin>>n>>k;
-        int sum=0;
-        for(int i=1;i<=n;i++){
-            sum+=pow(i,i);
-            cout<<sum<<" ";
-        }
-
+        ll n;
+        cin>>n;
+        ll x,y;
+        cin>>x>>y;
+        ll count;
+        count=(n/min(x,y));
+        if(n%min(x,y)!=0) count++;
+        cout<<count<<endl;
 
     }
 }

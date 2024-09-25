@@ -14,12 +14,17 @@ int main(){
         
         ll n,k;
         cin>>n>>k;
-        int sum=0;
-        for(int i=1;i<=n;i++){
-            sum+=pow(i,i);
-            cout<<sum<<" ";
-        }
+        // even n-> odd
+        // odd n-> even
+        // even k -> 
 
+        
+        ll x=k/2;
+        if(n%2==1 && k%2==1){
+            x++;
+        }
+        if(x%2==0) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
 
     }
 }
