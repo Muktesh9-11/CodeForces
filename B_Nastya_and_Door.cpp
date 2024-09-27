@@ -8,36 +8,38 @@ int main(){
     cin >> t;
     while(t--) {
         ll n, k;
-        cin >> n >> k;
-        vector<ll> arr(n);
-        for(ll i = 0; i < n; i++) {
-            cin >> arr[i];
-        }
-
-        ll peak1 = 0, max_peaks = 0, count = 0;
-
-        for (ll i = 1; i < k - 1; i++) {
-            if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
-                count++;
-            }
-        }
-        max_peaks = count;
-        peak1 = 1;
-
-        for (ll l = 2; l <= n - k + 1; l++) {
-            if (arr[l] > arr[l - 1] && arr[l] > arr[l + 1]) {
-                count--;
-            }
-            if (arr[l + k - 2] > arr[l + k - 3] && arr[l + k - 2] > arr[l + k - 1]) {
-                count++;
-            }
-
-            if (count > max_peaks) {
-                max_peaks = count;
-                peak1 = l;
-            }
-        }
-
-        cout << max_peaks + 1 << " " << peak1 << endl; 
+		cin >> n >> k;
+		vector<ll> mount(n);
+		vector<ll> peaks;
+		for(ll j = 0; j < n ; j ++){
+			cin >> mount[j];
+		}
+		for(ll j = 1; j < n - 1; j ++){
+			if(mount[j] > mount[j - 1] && mount[j] > mount[j + 1]){
+				peaks.pb(j);
+			}
+		}
+		ll left = 0, right = 0;
+		ll s = peaks.size();
+		ll ans1 = 0;
+		ll ans2 = 1;
+		while(right < s){
+			ll l = peaks[right] - peaks[left] + 3;
+			if(l <= k){
+				if(ans1 < right - left + 1){
+					ans1= right - left + 1;
+					ans2 = peaks[left] - (k - l);
+					if(ans2 <= 0){
+					    ans2 = 1;
+					}
+				}
+			right ++;
+			}
+			else{
+				left ++;
+			}
+		}
+		ans1 += 1;
+		cout << ans1 << " " << ans2 << endl;  
     }
 }
