@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #include<iostream>
+#include<string>
 using namespace std;
 #define ll long long
 #define pb push_back
@@ -12,14 +13,9 @@ int main(){
     while(t-->0){
         //code here
         
-        ll n,k;
-        cin>>n>>k;
-        int sum=0;
-        for(int i=1;i<=n;i++){
-            sum+=pow(i,i);
-            cout<<sum<<" ";
-        }
-
+        ll n,x;
+        cin>>n>>x;
+        cout<<2*x<<endl;
 
     }
 }
