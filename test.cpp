@@ -8,14 +8,9 @@ using namespace std;
 //LLONG_MAX=9,223,372,036,854,775,807
 
 int main(){
-    int t;
-    cin>>t;
-    while(t-->0){
         //code here
         
-        ll n,x;
-        cin>>n>>x;
-        cout<<2*x<<endl;
-
-    }
+        cout<<-10%2<<endl;
+        cout<<-11%2<<endl;
+        
 }

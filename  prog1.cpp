@@ -8,11 +8,12 @@ int main(){
     cin>>n;
     for(i=2;i<n;i++){
         if(n%i==0){
-            cout << "prime" << endl;
+            cout << "not prime" << endl;
             break;
         }
     }
     if(i == n){
-        cout << "not prime" << endl;
+        cout << "prime" << endl;
     }
+    return 0;
 }

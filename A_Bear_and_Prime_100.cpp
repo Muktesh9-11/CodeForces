@@ -19,7 +19,7 @@ void sieveOfEratosthenes() {
                 isPrime[i] = false;
         }
     }
-    cout << "Prime numbers up to " << N << " are: ";
+    //cout << "Prime numbers up to " << N << " are: ";
     for (long long p = 2; p <= N; ++p) {
         if (isPrime[p])
             arr.push_back(p);
@@ -27,13 +27,41 @@ void sieveOfEratosthenes() {
 }
 
 int main(){
-    int t;
-    cin>>t;
-    while(t-->0){
         //code here
         sieveOfEratosthenes();
         
-        
-
-    }
+        string result;
+        int cnt=0, flag=0;
+        for(int i=0;i<20;i++){
+            cout<<arr[i]<<endl;
+            fflush(stdout);
+            cin>>result;
+            if(result == "yes"){
+                int temp;
+                int j=i;
+                while(temp<=100){
+                    temp= arr[i]*arr[j];
+                    cout<<temp<<endl;
+                    fflush(stdout);
+                    cin>>result;
+                    if(result == "yes") {
+                        cout<<"composite"<<endl;
+                        fflush(stdout);
+                        flag++;
+                        break;
+                    }
+                    j++;
+                }
+                if(flag==0){
+                cout<<"prime"<<endl;
+                fflush(stdout);
+                flag++;
+                break;
+                }
+            }
+        }
+        if(flag==0){
+        cout<<"prime"<<endl;
+        fflush(stdout);
+        }
 }
