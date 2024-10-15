@@ -8,9 +8,12 @@ using namespace std;
 //LLONG_MAX=9,223,372,036,854,775,807
 
 int main(){
+    int t;
+    cin>>t;
+    while(t-->0){
         //code here
-        ll t = pow(2,99999);
-        t = t % (static_cast<long long>(10e9)+7) ;
-        cout<<t<<endl;
         
+        
+
+    }
 }
