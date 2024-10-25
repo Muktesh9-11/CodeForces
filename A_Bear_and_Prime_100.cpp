@@ -7,7 +7,7 @@ using namespace std;
 //INT_MAX=2,147,483,647
 //LLONG_MAX=9,223,372,036,854,775,807
 
-vector<int> arr;
+/*vector<int> arr;
 
 void sieveOfEratosthenes() {
     int N=100;
@@ -24,44 +24,24 @@ void sieveOfEratosthenes() {
         if (isPrime[p])
             arr.push_back(p);
     }
-}
+}*/
 
 int main(){
         //code here
-        sieveOfEratosthenes();
-        
-        string result;
-        int cnt=0, flag=0;
-        for(int i=0;i<20;i++){
-            cout<<arr[i]<<endl;
-            fflush(stdout);
-            cin>>result;
-            if(result == "yes"){
-                int temp;
-                int j=i;
-                while(temp<=100){
-                    temp= arr[i]*arr[j];
-                    cout<<temp<<endl;
-                    fflush(stdout);
-                    cin>>result;
-                    if(result == "yes") {
-                        cout<<"composite"<<endl;
-                        fflush(stdout);
-                        flag++;
-                        break;
-                    }
-                    j++;
-                }
-                if(flag==0){
-                cout<<"prime"<<endl;
-                fflush(stdout);
-                flag++;
+        vector<int> tocheck = {2,3,5,7,11,13,19,17,23,29,31,37,41,43,47,4,9,25,49};
+        int cnt = 0;
+        string s;
+        for(auto x : tocheck){
+            cout<<x<<endl;
+            cin>>s;
+            if(s=="yes") cnt++;
+            if(cnt>1){
+                cout<<"composite"<<endl;
                 break;
-                }
+                //return;
             }
         }
-        if(flag==0){
+        if(cnt<2){
         cout<<"prime"<<endl;
-        fflush(stdout);
         }
 }

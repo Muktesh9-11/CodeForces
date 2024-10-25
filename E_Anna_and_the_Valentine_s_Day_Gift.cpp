@@ -7,39 +7,24 @@ using namespace std;
 //INT_MAX=2,147,483,647
 //LLONG_MAX=9,223,372,036,854,775,807
 
-ll reverse(ll x) {
-      if(x/10==0) return x;
-      int len=0;
-      ll temp= x;
-      vector<int> store;
-      while(temp>0) {
-          store.push_back(temp%10);
-          temp=temp/10;
-          len++;
-      }
-      ll ans=0;
-      temp=1;
-      for(int i=len;i>0;i++){
-          ans+= store[i-1]*temp;
-          temp*=10;
-      }
-      return ans;
+ll count0(ll n){
+    ll cnt = 0;
+    while(n>0){
+        if(n%10 != 0) break;
+            cnt++;
+            n/=10;
+    }
+    return cnt;
 }
 
-ll join(ll x, ll y){
-      int len=0;
-      ll temp= y;
-      while(temp>0) {
-          temp=temp/10;
-          len++;
-      }
-      int j = 1
-      for(int i=0;i<len;i++) {
-          j*=10;
-      }
-      return x*j+y;
+ll countdigits(ll n){
+    ll cnt =0;
+    while(n>0){
+        cnt++;
+        n /=10;
+    }
+    return cnt;
 }
-
 
 int main(){
     int t;
@@ -53,7 +38,22 @@ int main(){
       for(int i=0;i<n;i++){
          cin>>arr[i];
       }
-      sort(arr.begin() , arr.end());
 
+
+      ll sum = 0;
+      vector<ll> z(n);
+      for(ll i=0;i<n;i++){
+        sum+= countdigits(arr[i]);
+        z[i] = (count0(arr[i]));
+      }
+
+      sort(z.begin(),z.end(),greater<ll>());
+      for(ll i=0;i<n;i+=2){
+        sum -= z[i];
+      }
+
+      if(sum>=(k+1)) cout<<"Sasha"<<endl;
+      else cout<<"Anna"<<endl;
+      
     }
 }
