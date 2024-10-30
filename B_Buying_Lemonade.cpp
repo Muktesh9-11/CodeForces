@@ -21,31 +21,17 @@ int main(){
         }
         sort(arr.begin(),arr.end());
 
-        ll ans=0,rem=k;
-        ll nxt = n;
-        ll left =0;
-        while(rem>=nxt){
-            if(nxt * arr[left] <= rem){
-                ans+= nxt*arr[left];
-                rem -= nxt*arr[left];
-                for(int i=left+1;i<n;i++){
-                    arr[i]-= arr[left];
-                }
-                left++;
-                nxt--;
-            }
-            else{
-                ll t = rem/nxt;
-                ans+= nxt*t;
-                rem-= nxt*t;
-                arr[left] -= t;
-                break;
-            }
+        ll sub=0 , ans = k;
+        for(int i=0;i<n;i++){
+            arr[i]-= sub;
+            //ans+= min(k,)
+            k-= min(k,(n-i)*arr[i]);
 
-            if(rem>0) ans++;
+            if(k==0) break;
+            else ans++;
+
+            sub+=arr[i];
         }
-
-        if(rem>=0) ans+=rem;
 
         cout<<ans<<endl;
 
