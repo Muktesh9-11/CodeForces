@@ -29,14 +29,41 @@ int solve(){
 
         else if(k==4){
             ll cnteven=0;
+            ll temp = INT_MIN;
+            //ll N=arr[0];
+            //if(N%2==0) cnteven++;
             for(int i=0;i<n;i++){
-                if(arr[i]%2==0){
-                    cnteven++;
-                }
-                if(cnteven >=2) return 0;
+                if(arr[i]%2==0) cnteven++;
+                if(arr[i]%4==0) return 0;
+                temp = max(arr[i]%4,temp);
+                //if(arr[i]%2==0) cnteven++;
+                //if(N%4 == 0) return 0;
+                //N=N*arr[i];
+                //N=N%100;
             }
-            if(cnteven==1) return 1;
-            
+            if(cnteven>=2) return 0;
+            else if(cnteven==1 || temp==3) return 1;
+            else return 2;
+            //if(cnteven == 1) return 1;
+            //else return 2;
+        }
+
+        else if(k==3){
+            ll temp=INT_MIN;
+            for(int i=0;i<n;i++){
+                temp = max(arr[i]%3,temp);
+                if(arr[i]%3 == 0) return 0;
+            }
+            return (3-temp);
+        }
+
+        else{
+            ll temp = INT_MIN;
+            for(int i=0;i<n;i++){
+                temp = max(arr[i]%5,temp);
+                if(arr[i]%5==0) return 0;
+            }
+            return (5-temp);
         }
 }
 
