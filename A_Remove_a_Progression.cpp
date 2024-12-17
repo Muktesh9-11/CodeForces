@@ -12,6 +12,7 @@ using namespace std;
 #define fast ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
 #define pi (3.141592653589)
 #define MOD 1000000007
+#define all(x) (x).begin(), (x).end()
 //INT_MAX=2,147,483,647
 //LLONG_MAX=9,223,372,036,854,775,807
 
@@ -28,7 +29,12 @@ ll factorial(ll n){ll ans=1;for(int i=1; i<=n; i++){ans = (ans*i) % MOD;}return 
 ll comb(ll n,ll r){r>n-r?r=n-r:0;ll res=1;for(ll i=1;i<=r;++i)res*=n-r+i,res/=i;return res;}
 
 //ROTATE A MATRIX
-vector<vll>rot90(vector<vector<long long>>matrix){int n=matrix.size();for(int i=0;i<n;i++){for(int j=i+1;j<n;j++){swap(matrix[i][j],matrix[j][i]);}}for(int i=0;i<n;i++){reverse(all(matrix[i]));}return matrix;}
+vector<vector<ll> >rot90(vector<vector<long long> >matrix){int n=matrix.size();for(int i=0;i<n;i++){for(int j=i+1;j<n;j++){swap(matrix[i][j],matrix[j][i]);}}for(int i=0;i<n;i++){reverse(all(matrix[i]));}return matrix;}
+// PREFIX SUM ARRAY
+vector<ll> prefixSum(vector<ll> arr, ll n){
+  vector<ll> prefixSumArr(n,0);prefixSumArr[0] = arr[0];for(ll i = 1; i < n; i ++){prefixSumArr[i] = prefixSumArr[i - 1] + arr[i];}return prefixSumArr;
+}
+
 
 //BITS
 #define set_bits(x) __builtin_popcountll(x)
