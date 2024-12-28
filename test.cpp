@@ -57,15 +57,6 @@ vector<int> sieve(int n) {int*arr = new int[n + 1](); vector<int> vect; for (int
 int main(){
         //code here
 
-        ll l = 5,r = 10;
-        ll xr = 1;
-        for(int i=l;i<r-1;i++){
-                for(int j=i+1;j<r;j++){
-                        xr *= i xor j;
-                        cout<<xr<<" ";
-                }
-        }
-
-        cout<<xr<<endl;
+        
 
 }
