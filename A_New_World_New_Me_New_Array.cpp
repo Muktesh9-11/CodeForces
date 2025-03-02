@@ -55,9 +55,29 @@ vector<int> sieve(int n) {int*arr = new int[n + 1](); vector<int> vect; for (int
 
 
 int main(){
-    
-    string x = decToBinary(52);
-    cout<<x;
-        
+        //code here
+
+        int t;
+        cin>>t;
+        while(t-->0){
+
+            ll n,k,p;
+            cin>>n>>k>>p;
+            vector<ll> a(n,0);
+
+            ll ka = abs(k);
+            
+            if(ka%p == 0 && ka/p<= n){
+                cout<<ka/p<<endl;
+            }
+            else if(ka%p != 0 && ka/p<n){
+                cout<<(ka/p)+1<<endl;
+            }
+            else cout<<-1<<endl;
+
+
+
+
+        }
 
 }

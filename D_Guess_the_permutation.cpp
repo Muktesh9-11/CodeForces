@@ -56,8 +56,58 @@ vector<int> sieve(int n) {int*arr = new int[n + 1](); vector<int> vect; for (int
 
 int main(){
     
-    string x = decToBinary(52);
-    cout<<x;
+    ll t;
+    cin>>t;
+    while(t-->0){
+
+        ll n;
+        cin>>n;
+
+        vector<ll> ans(n);
+
+        ll s1,s2,s3,s4;
+
+        cout<<"? "<<1<<" "<<2<<" "<<3<<endl;
+        //cout.flush();
+        cin>>s1;
+
+        cout<<"? "<<1<<" "<<2<<" "<<4<<endl;
+        //cout.flush();
+        cin>>s2;
+
+        cout<<"? "<<3<<" "<<4<<" "<<1<<endl;
+        //cout.flush();
+        cin>>s3;
         
+        cout<<"? "<<2<<" "<<3<<" "<<4<<endl;
+        //cout.flush();
+        cin>>s4;
+
+        ans[0] = (s1+s2+s3 - (2*s4))/3;
+        ans[1] = s4 - s3 + ans[0];
+        ans[2] = s1 - ans[0] - ans[1];
+        ans[3] = s2 - ans[0] - ans[1];
+
+        ll i = 5;
+
+        while(i<=n){
+            ll temp;
+
+            cout<<"? "<<i<<" "<<i-1<<" "<<i-2<<endl;
+            //cout.flush();
+            cin>>temp;
+            ans[i-1] = temp - ans[i-2] - ans[i-3];
+            i++;
+        }
+
+        cout<<"!";
+        for(ll i=0;i<n;i++){
+            cout<<" "<<ans[i];
+        }
+        cout<<endl;
+        //cout.flush();
+
+
+    }
 
 }

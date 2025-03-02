@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 #include<iostream>
 #include<string>
+#include<bitset>
 using namespace std;
 #define ll long long
 #define pb push_back
@@ -52,12 +53,60 @@ vector<int> sieve(int n) {int*arr = new int[n + 1](); vector<int> vect; for (int
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
 int main(){
-    
-    string x = decToBinary(52);
-    cout<<x;
+        //code here
+    ll t;
+    cin>>t;
+    while(t-->0){
+
+        ll n,x;
+        cin>>n>>x;
+
+        vector<ll> ans;
+
+        //bitset<29> binary(x);
+
+
+        if(n == 1){
+            cout<<x<<endl;
+        }
+        else{
+            ll temp=0;
+            ll count = 0;
+            string str = decToBinary(x);
+            reverse(str.begin(),str.end());
+
+           
+
+            while(str[count] != '0'){
+                count++;
+            }
+            string fix  = str.substr(0,count);
+            ll fi = binaryToDecimal(fix);
+            for(int i=0;i<=fi;i++){
+                ans.push_back(i);
+                if(i>=n) break;
+            }
+
+            for(int i=ans.size();i<n;i++){
+                    ans.push_back(0);
+            }
+
+            string mmm = decToBinary(ans[n-1]);
+            //ll sz = mmm.size();
+            if(mmm.size() != str.size()){
+                ans[n-1] = x;
+            }
+
+            for(ll i=0;i<n;i++){
+                cout<<ans[i]<<" ";
+            }
+            cout<<endl;
+
+        }
+
+
+    }
         
 
 }

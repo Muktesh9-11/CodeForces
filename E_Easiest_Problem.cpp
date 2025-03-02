@@ -56,8 +56,34 @@ vector<int> sieve(int n) {int*arr = new int[n + 1](); vector<int> vect; for (int
 
 int main(){
     
-    string x = decToBinary(52);
-    cout<<x;
+    ll t;
+    cin>>t;
+    while(t-->0){
+
+        ll n;
+        cin>>n;
+        string s;
+        cin>>s;
+
+        ll count = 0;
+        ll ptr = 0;
+        while(ptr<n-1){
+            if(s[ptr] == s[ptr+1]){
+                ptr++;
+                count++;
+            }
+            else if(ptr==(n-2)){
+                ptr++;
+            }
+            else{
+                ptr+=2;
+                count++;
+            }
+        }
+
+        cout<<count<<endl;
+
+    }
         
 
 }

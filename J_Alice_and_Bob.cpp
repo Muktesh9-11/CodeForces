@@ -51,13 +51,98 @@ vector<int> sieve(int n) {int*arr = new int[n + 1](); vector<int> vect; for (int
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+vector<int> Fact(int n) {
+    vector<int> factors;
+    
+    for (int i = 1; i * i <= n; i++) {  
+        if (n % i == 0) {
+            factors.push_back(i);       
+            if (i != n / i)             
+                factors.push_back(n / i);
+        }
+    }
+
+    sort(factors.begin(), factors.end());  
+    return factors;
+}
 
 
 
 int main(){
     
-    string x = decToBinary(52);
-    cout<<x;
+    ll t;
+    cin>>t;
+    while(t-->0){
+
+        ll n;
+        cin>>n;
+        vector<ll> arr(n);
+        for(ll i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        sort(arr.begin(),arr.end());
+
+        vector<int> factors = Fact(arr[0]);
+        sort(factors.begin(),factors.end(),greater<ll>());
+
+        ll ans = 1;
+        //ll count = 0; 
+        ll idx = -1;
+
+        if (n == 2) {
+            cout << max(arr[0], arr[1]) << '\n';
+            continue;
+        }
+
+        for(ll it = 0; it< factors.size();it++){
+            ll count = 0;
+            for(ll i = 0;i<n;i++){
+                if(arr[i]%factors[it] != 0){
+                    count++;
+                    idx = i;
+                }
+            }
+            if(count <= 1){
+                ans = factors[it];
+                break;
+            }
+        }
+
+        if(ans == arr[0]){
+            if(idx == -1){
+                ll fix = arr[1];
+                for(ll i = 1;i<n;i++){
+                    fix = gcd(fix,arr[i]);
+                }
+                if(fix > ans){
+                    ans = fix;
+                }
+            }
+        }
+        else{
+            if(idx == -1){
+                ll fix = arr[1];
+                for(ll i = 1;i<n;i++){
+                    fix = gcd(fix,arr[i]);
+                }
+                if(fix > ans){
+                    ans = fix;
+                }
+            }
+            else{
+                arr[idx] = 1;
+                ll fix = ans;
+                for(ll i = 0;i<n;i++){
+                    fix = gcd(fix,arr[i]);
+                }
+                if(fix > ans){
+                    ans = fix;
+                }
+            }
+        }
+
+        cout<<ans<<endl;
+    }
         
 
 }

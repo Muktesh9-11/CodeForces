@@ -55,9 +55,34 @@ vector<int> sieve(int n) {int*arr = new int[n + 1](); vector<int> vect; for (int
 
 
 int main(){
-    
-    string x = decToBinary(52);
-    cout<<x;
+        //code here
+    ll t;
+    cin>>t;
+    while(t-->0){
+
+        ll n;
+        cin>>n;
+        string s;
+        cin>>s;
+
+        ll cntu = 0,cntd = 0;
+        for(ll i=0;i<n;i++){
+            if(s[i] == '_') cntd++;
+            if(s[i] == '-') cntu++;
+        }
+
+        if(cntu<2 || cntd<1) cout<<0<<endl;
+
+        else{
+            
+            ll ans;
+            ll temp = cntu/2;
+            ans = ((cntu - temp)*temp)* cntd;
+            cout<<ans<<endl;
+
+        }
+
+    }
         
 
 }
